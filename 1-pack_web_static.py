@@ -8,6 +8,7 @@ from datetime import datetime
 
 @task
 def do_pack():
+    """ Packing web files into a tgz compressed file """
     current_directory = os.getcwd()
 
     parent_directory = 'versions/'
