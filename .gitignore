@@ -1,1 +1,9 @@
+.gitignore
 *.pyc
+__pycache__
+.idea
+versions/
+\
+test_params_create
+DELETEME.py
+main_*
