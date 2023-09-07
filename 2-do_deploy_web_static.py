@@ -11,7 +11,7 @@ def do_deploy(archive_path):
 
     if not os.path.exists(archive_path):
         return False
-    
+
     archive_name = os.path.basename(archive_path)
     path = "/data/web_static/releases/"
 
