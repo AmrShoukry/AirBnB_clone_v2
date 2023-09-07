@@ -1,8 +1,8 @@
 # shell to puppet
 
 exec { 'update':
+    provider => shell,
     command => 'sudo apt-get -y update',
-    path    => ['/usr/bin', '/bin'],
 }
 
 package { 'nginx':
@@ -43,13 +43,13 @@ file { '/data/web_static/releases/test/index.html':
 }
 
 exec { 'remove_symbolic':
+    provider => shell,
     command => 'rm /data/web_static/current',
-    path    => ['/usr/bin', '/bin'],
 }
 
 exec { 'create_symbolic':
+    provider => shell,
     command => 'sudo ln -s /data/web_static/releases/test/ /data/web_static/current',
-    path    => ['/usr/bin', '/bin'],
     require => Exec['remove_symbolic'],
 }
 
@@ -71,13 +71,13 @@ file { '/etc/nginx/sites-available/default':
 }
 
 exec { 'set_ownership':
+    provider => shell,
     command => 'sudo chown -R ubuntu:ubuntu /data/',
-    path    => ['/usr/bin', '/bin'],
     require => File['/data/'],
 }
 
 exec { 'start_nginx':
+    provider => shell,
     command => 'sudo service nginx restart',
-    path    => ['/usr/bin', '/bin'],
     require => File['/etc/nginx/sites-available/default'],
 }
