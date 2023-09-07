@@ -11,10 +11,11 @@ def do_deploy(archive_path):
 
     if not os.path.exists(archive_path):
         return False
+    
+    archive_name = os.path.basename(archive_path)
+    path = "/data/web_static/releases/"
 
     try:
-        archive_name = os.path.basename(archive_path)
-        path = "/data/web_static/releases/"
         put(archive_path, '/tmp/')
         run(f'mkdir -p {path}{archive_name}/')
         run(f'tar -xzf /tmp/{archive_name} -C {path}{archive_name}')
