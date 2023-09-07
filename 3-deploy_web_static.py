@@ -6,6 +6,7 @@ deploying = __import__('2-do_deploy_web_static')
 
 archive_path = packing.do_pack()
 
+
 @task
 def deploy():
     """ Combine packing and deploying together """
