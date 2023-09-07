@@ -25,7 +25,6 @@ def do_deploy(archive_path):
         run(f'rm -rf {path}{archive_only}/web_static')
         run(f'rm -rf /data/web_static/current')
         run(f'ln -s {path}{archive_only}/ /data/web_static/current')
-        print("New version deployed!")
         return True
     except Exception as E:
         return False
