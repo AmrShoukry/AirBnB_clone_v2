@@ -19,7 +19,7 @@ def do_deploy(archive_path):
     try:
         put(archive_path, '/tmp/')
         run(f'mkdir -p {path}{archive_only}/')
-        run(f'tar -xzf /tmp/{archive_name} -C {path}{archive_only}')
+        run(f'tar -xzf /tmp/{archive_name} -C {path}{archive_only}/')
         run(f'rm /tmp/{archive_name}')
         run(f'mv {path}{archive_only}/web_static/* {path}{archive_only}/')
         run(f'rm -rf {path}{archive_only}/web_static')
