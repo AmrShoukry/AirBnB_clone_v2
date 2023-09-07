@@ -7,10 +7,11 @@ env.hosts = ['18.207.140.20', '18.204.13.232']
 env.user = 'ubuntu'
 env.key_filename = '~/.ssh/school'
 
+
 @task
 def do_deploy(archive_path):
     """ Deploying a new archive into web servers """
-    
+
     if not os.path.exists(archive_path):
         return False
 
@@ -25,7 +26,6 @@ def do_deploy(archive_path):
         run(f'rm -rf /{path}{archive_name}/web_static')
         run(f'rm -rf /data/web_static/current')
         run(f'ln -s {path}{archive_name}/ /data/web_static/current')
-        print("New version deployed!")
         return True
     except Exception as E:
         return False
