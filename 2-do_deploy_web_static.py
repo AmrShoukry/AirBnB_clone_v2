@@ -4,8 +4,6 @@ import os
 from fabric.api import env, run, put
 
 env.hosts = ['18.207.140.20', '18.204.13.232']
-env.user = 'ubuntu'
-env.key_filename = '~/.ssh/school'
 
 
 def do_deploy(archive_path):
