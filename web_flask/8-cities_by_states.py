@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" 7-states_list.py """
+""" 8-cities_by_states.py """
 
 from models import storage
 from flask import Flask, render_template
@@ -12,12 +12,12 @@ def teardown(exception):
     storage.close()
 
 
-@app.route("/states_list", strict_slashes=False)
-def states():
-    """ 0.0.0.0:5000/hbnb/states_list """
+@app.route("/cities_by_states", strict_slashes=False)
+def cities():
+    """ 0.0.0.0:5000/hbnb/cities_by_states """
     state_objects = storage.all('State').values()
-    data = sorted(state_objects, key=lambda state: state.name)
-    return render_template('7-states_list.html', data=data)
+    states = sorted(state_objects, key=lambda state: state.name)
+    return render_template('8-cities_by_states.html', states=states)
 
 
 if (__name__ == '__main__'):
