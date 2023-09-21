@@ -12,7 +12,8 @@ else:
         "place_amenity",
         Base.metadata,
         Column('place_id', String(60), ForeignKey('places.id', ondelete='CASCADE', onupdate='CASCADE'), primary_key=True, nullable=False),
-        Column('amenity_id', String(60), ForeignKey('amenities.id', ondelete='CASCADE', onupdate='CASCADE'), primary_key=True, nullable=False)
+        Column('amenity_id', String(60), ForeignKey('amenities.id', ondelete='CASCADE', onupdate='CASCADE'), primary_key=True, nullable=False),
+        mysql_charset="latin1"
     )
 
 
@@ -32,6 +33,8 @@ class Place(BaseModel, Base):
         amenity_ids = []
     else:
         __tablename__ = "places"
+        __table_args__ = ({'mysql_default_charset': 'latin1'})
+        # city_id = Column(String(60), ForeignKey('cities.id', ondelete='CASCADE', onupdate='CASCADE'), nullable=False)
         city_id = Column(String(60), ForeignKey('cities.id', ondelete='CASCADE', onupdate='CASCADE'), nullable=False)
         user_id = Column(String(60), ForeignKey('users.id', ondelete='CASCADE', onupdate='CASCADE'), nullable=False)
         name = Column(String(128), nullable=False)
