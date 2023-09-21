@@ -13,17 +13,21 @@
 	float: left;
 	height: 100%;
 	width: 25%;
+
 	line-height: 20px;
 	border-right: 1px solid #DDDDDD;
+    position: relative;
 }
 
-.amenities
-{
-    display: inline;
-    float: left;
-    height: 100%;
+.amenities {
+	display: inline;
+	vertical-align: middle;
+	height: 100%;
+	float: left;
     width: 25%;
-    line-height: 20px;
+
+	line-height: 20px;
+    position: relative;
 }
 
 .popover {
@@ -41,6 +45,8 @@
 
     max-height: 300px;
     overflow-y: scroll;
+    position: absolute;
+    z-index: 9;
 }
 
 .locations:hover .popover {
